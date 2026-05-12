@@ -1,2 +1,4 @@
 # Avaliacao_01_algoritimos
-Atividade avaliativa sobre algorimos
+Maria eduarda dorn 
+Informatica para internet 2608
+
