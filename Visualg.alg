@@ -1,96 +1,122 @@
-algoritmo "cadastro_funcionarios"
+algoritmo "CadastroFuncionarios"
 
 var
+
 funcionarios: vetor[1..10,1..4] de caractere
-opcao, i, total: inteiro
+
+opcao: inteiro
+i: inteiro
+total: inteiro
+
 nomeBusca: caractere
 encontrado: logico
 
 inicio
 
-escreval("MENU DO SISTEMA")
-escreval("1 - Cadastro funcionario")
-escreval("2 - Pesquisar funcionario")
-escreval("3 - Exibir funcionario")
-escreval("4 - sair")
-escreva("Escolha uma opção:")
-leia(opcao)
+total <- 0
+opcao <- 0
 
-escolha opção
+enquanto opcao <> 4 faca
 
-   caso 1
-     
-       se total < 10 entao 
-        
-        total <- total + 1
+   escreval(" ")
+   escreval("===== MENU =====")
+   escreval("1 - Cadastrar")
+   escreval("2 - Pesquisar")
+   escreval("3 - Exibir")
+   escreval("4 - Sair")
 
-        escreva("Nome:")
-        leia(funcionarios[total,1])
+   escreva("Escolha: ")
+   leia(opcao)
 
-        escreva("Cargo:")
-        leia(funcionarios[total,2])
+   escolha opcao
 
-        escreva("Salario:")
-        leia(funcionarios[total,3])
+      caso 1
 
-        escreva("Data de admissao:")
-        leia(funcionarios[total,4])
+         se total < 10 entao
 
-        escreval("Funcionario cadastrado com sucesso!")
+            total <- total + 1
 
-        senao
-          escreval("Limite maximo de funcionarios atingido!")
-        fimse
+            escreva("Nome: ")
+            leia(funcionarios[total,1])
 
-   caso 2
-        
-        escreva("Digite o nome do funcionario:")
-        leia(nomeBusca)
+            escreva("Cargo: ")
+            leia(funcionarios[total,2])
 
-        encontrado <- falso
+            escreva("Salario: ")
+            leia(funcionarios[total,3])
 
-        para i de 1 ate total faca
+            escre("Data admissao: ")
+            leia(funcionarios[total,4])
 
-          se funcionarios[i,1] = nomeBusca entao 
+            escreval("Funcionario cadastrado!")
 
-          escreval("Funcionario encontrado!")
-          escreval("Nome:", funcionarios[i,1])
-          escreval("Cargo:", funcionarios[i,2])
+         senao
 
-          encontrado <- verdadeiro
-          fimse
-        fimpara
+            escreval("Limite maximo atingido!")
 
-          se encontrado = falso entao 
-           escreval("Nenhum resultado para a pesquisa.")
-           fimse
-   
-   caso 3
+         fimse
 
-      se total = 0 entao
-        escreval("Nenhum funcionario cadastrado.")
 
-      escreal("NOME     |CARGO      |SALARIO    |DATA ADMISSAO")
+      caso 2
 
-      para i de 1 ate total faca
+         escreva("Digite o nome: ")
+         leia(nomeBusca)
 
-         escreval(funcionarios[i,1], " | "
-                  funcionarios[i,2], " | "
-                  funcionarios[i,3], " | "
-                  funcionarios[i,4], " | ")
+         encontrado <- falso
+
+         para i de 1 ate total faca
+
+            se funcionarios[i,1] = nomeBusca entao
+
+               escreval("Funcionario encontrado")
+               escreval("Nome: ", funcionarios[i,1])
+               escreval("Cargo: ", funcionarios[i,2])
+
+               encontrado <- verdadeiro
+
+            fimse
 
          fimpara
-        fimse
 
-   caso 4
-    
-     escreval("Programa encerrado!")
+         se encontrado = falso entao
+            escreval("Nenhum resultado encontrado")
+         fimse
 
-    outrocaso
 
-      escreval("Opcao invalida!")
+      caso 3
 
-       fimescolha
+         se total = 0 entao
+
+            escreval("Nenhum funcionario cadastrado")
+
+         senao
+
+            escreval("===================================")
+
+            para i de 1 ate total faca
+
+               escreval("Nome: ", funcionarios[i,1])
+               escreval("Cargo: ", funcionarios[i,2])
+               escreval("Salario: ", funcionarios[i,3])
+               escreval("Admissao: ", funcionarios[i,4])
+
+               escreval("------------------------")
+
+            fimpara
+
+         fimse
+
+
+      caso 4
+
+         escreval("Programa encerrado")
+
+
+      outrocaso
+
+         escreval("Opcao invalida")
+
+   fimescolha
+
+
 fimalgoritmo
-
-  
